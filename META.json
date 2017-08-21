@@ -42,12 +42,15 @@
       },
       "runtime" : {
          "requires" : {
+            "AnyEvent" : "0",
+            "AnyEvent::Handle" : "0",
+            "AnyEvent::Socket" : "0",
+            "Cache::Memory::Simple" : "0",
+            "Crypt::JWT" : "0",
+            "JSON" : "0",
+            "Moo" : "0",
+            "Protocol::HTTP2::Client" : "0",
             "perl" : "5.008001"
-         }
-      },
-      "test" : {
-         "requires" : {
-            "Test::More" : "0.98"
          }
       }
    },
