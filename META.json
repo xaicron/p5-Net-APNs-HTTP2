@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "APNs Provider API for Perl",
    "author" : [
       "xaicron <xaicron@gmail.com>"
    ],
@@ -52,6 +52,17 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/xaicron/p5-Net-APNs-HTTP2/issues"
+      },
+      "homepage" : "https://github.com/xaicron/p5-Net-APNs-HTTP2",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/xaicron/p5-Net-APNs-HTTP2.git",
+         "web" : "https://github.com/xaicron/p5-Net-APNs-HTTP2"
+      }
+   },
    "version" : "0.01",
    "x_authority" : "cpan:XAICRON",
    "x_serialization_backend" : "JSON::PP version 2.94"
