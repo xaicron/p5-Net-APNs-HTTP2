@@ -228,6 +228,76 @@ Net::APNs::HTTP2 - APNs Provider API for Perl
 
 Net::APNs::HTTP2 is APNs Provider API for Perl.
 
+=head1 METHODS
+
+=head2 new(%args)
+
+Create a new instance of C<< Net::APNs::HTTP2 >>.
+
+Supported arguments are:
+
+=over
+
+=item auth_key : File Path
+
+Universal Push Notification Client SSL Certificate.
+But, can not use this auth key as it is.
+Please convert key as follows:
+
+  openssl pkcs8 -in AuthKey_XXXXXXXXXX.p8 -inform PEM -out auth_key.p8 -outform PEM -nocrypt
+
+=item key_id : Str
+
+A 10-character key identifier (kid) key, obtained from your developer account.
+
+=item team_id : Str
+
+The issuer (iss) registered claim key, whose value is your 10-character Team ID, obtained from your developer account.
+
+=item bundle_id : Str
+
+Your Application bundle identifier.
+
+=item is_development : Bool
+
+Development server: api.development.push.apple.com:443
+Production server: api.push.apple.com:443
+
+=back
+
+=head2 $apns->prepare($device_token, $payload, $callback [, $extra_headers ])
+
+Create a request.
+
+  $apns->prepare($device_token, {
+      aps => {
+         alert => {
+            title => 'test message',
+            body  => 'from Net::APNs::HTTP2',
+         },
+         badge => 1,
+      },
+  }, sub {
+      my ($header, $content) = @_;
+      # $header = [
+      #     ":status" => "200",
+      #     "apns-id" => "82B34E17-370A-DBF4-5046-FF56A4EA1FAF",
+      # ];
+      ...
+  });
+
+You can chainged call
+
+  $apns->prepare(...)->prepare(...)->prepare(...)->send();
+
+=head2 $apns->send()
+
+Send notification.
+
+=head2 $apns->close()
+
+Close connections.
+
 =head1 LICENSE
 
 Copyright (C) xaicron.
