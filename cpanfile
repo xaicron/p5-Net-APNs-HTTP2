@@ -6,7 +6,7 @@ requires 'Crypt::JWT';
 requires 'JSON';
 requires 'Moo';
 requires 'Protocol::HTTP2::Client';
-requires 'perl', '5.008001';
+requires 'perl', '5.010';
 
 on configure => sub {
     requires 'Module::Build::Tiny', '0.035';
