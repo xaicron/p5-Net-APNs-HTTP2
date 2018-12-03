@@ -212,7 +212,7 @@ Net::APNs::HTTP2 - APNs Provider API for Perl
             ...
         });
 
-        # You can chainged
+        # You can chain prepare statements
         $apns->prepare(...)->prepare(...)->prepare(...);
 
         # send all prepared requests in parallel
@@ -286,7 +286,7 @@ Create a request.
       ...
   });
 
-You can chainged call
+You can chain calls to prepare:
 
   $apns->prepare(...)->prepare(...)->prepare(...)->send();
 
@@ -297,6 +297,22 @@ Send notification.
 =head2 $apns->close()
 
 Close connections.
+
+=head2 $apns->on_error($fatal, $message)
+
+Callback that is invoked when there's a hard error trying to open the connection to Apple.
+
+=over 4
+
+=item C<$fatal>
+
+A boolean which will be true if this is a fatal error.
+
+=item C<$message>
+
+The error returned from the server.
+
+=back
 
 =head1 LICENSE
 
