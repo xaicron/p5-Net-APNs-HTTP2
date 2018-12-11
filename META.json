@@ -72,7 +72,7 @@
          "web" : "https://github.com/xaicron/p5-Net-APNs-HTTP2"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_authority" : "cpan:XAICRON",
    "x_contributors" : [
       "colin <colink@perldreamer.com>"
