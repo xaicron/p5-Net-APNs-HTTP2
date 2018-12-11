@@ -123,6 +123,7 @@ sub prepare {
     my $apns_topic       = $extra_header->{apns_topic}      || $self->bundle_id;
     my $apns_id          = $extra_header->{apns_id};
     my $apns_collapse_id = $extra_header->{apns_collapse_id};
+    $cb ||= sub {};
 
     my $clinet = $self->_client;
     $clinet->request(
