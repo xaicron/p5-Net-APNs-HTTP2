@@ -305,11 +305,11 @@ Callback that is invoked when there's a hard error trying to open the connection
 
 =over 4
 
-=item C<$fatal>
+=item C<< $fatal >>
 
 A boolean which will be true if this is a fatal error.
 
-=item C<$message>
+=item C<< $message >>
 
 The error returned from the server.
 
