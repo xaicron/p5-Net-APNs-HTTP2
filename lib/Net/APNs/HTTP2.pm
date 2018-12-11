@@ -6,6 +6,7 @@ use warnings;
 our $VERSION = "0.01";
 
 use Moo;
+use Crypt::PK::ECC 0.059;
 use Crypt::JWT;
 use JSON;
 use Cache::Memory::Simple;
@@ -242,10 +243,7 @@ Supported arguments are:
 =item auth_key : File Path
 
 Universal Push Notification Client SSL Certificate.
-But, can not use this auth key as it is.
-Please convert key as follows:
-
-  openssl pkcs8 -in AuthKey_XXXXXXXXXX.p8 -inform PEM -out auth_key.p8 -outform PEM -nocrypt
+This certificate filename like AuthKey_XXXXXXXXXX.p8.
 
 =item key_id : Str
 
