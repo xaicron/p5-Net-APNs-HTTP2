@@ -124,7 +124,13 @@ sub prepare {
     my $apns_topic       = $extra_header->{apns_topic}      || $self->bundle_id;
     my $apns_id          = $extra_header->{apns_id};
     my $apns_collapse_id = $extra_header->{apns_collapse_id};
+    my $apns_push_type   = $extra_header->{apns_push_type};
     $cb ||= sub {};
+
+    my @push_types = qw(alert background voip complication fileprovider mdm);
+    if (defined $apns_push_type && !grep( /^$apns_push_type$/, @push_types)) {
+      $apns_push_type = undef;
+    }
 
     my $clinet = $self->_client;
     $clinet->request(
@@ -139,6 +145,7 @@ sub prepare {
             'apns-topic'      => $apns_topic,
             defined $apns_id          ? ('apns-id'          => $apns_id)          : (),
             defined $apns_collapse_id ? ('apns-collapse-id' => $apns_collapse_id) : (),
+            defined $apns_push_type   ? ('apns-push-type'   => $apns_push_type) : (),
         ],
         data    => JSON::encode_json($payload),
         on_done => $cb,
